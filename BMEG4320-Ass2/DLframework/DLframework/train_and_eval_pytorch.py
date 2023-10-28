@@ -91,7 +91,7 @@ def main(data_flag, output_root, num_epochs, gpu_ids, batch_size, download, mode
         model =  resnet50(pretrained=False, num_classes=n_classes) if resize else ResNet50(in_channels=n_channels, num_classes=n_classes)
     else:
         raise NotImplementedError
-
+    
 
 
 
