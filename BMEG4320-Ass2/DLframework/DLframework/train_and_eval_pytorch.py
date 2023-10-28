@@ -91,7 +91,7 @@ def main(data_flag, output_root, num_epochs, gpu_ids, batch_size, download, mode
         model =  resnet50(pretrained=False, num_classes=n_classes) if resize else ResNet50(in_channels=n_channels, num_classes=n_classes)
     else:
         raise NotImplementedError
-    
+
 
 
 
@@ -159,12 +159,14 @@ def main(data_flag, output_root, num_epochs, gpu_ids, batch_size, download, mode
             writer.add_scalar(key, value, epoch)
             
         cur_auc = val_metrics[1]
+        cur_acc = val_metrics[2]
         if cur_auc > best_auc:
             best_epoch = epoch
             best_auc = cur_auc
             best_model = deepcopy(model)
             print('cur_best_auc:', best_auc)
             print('cur_best_epoch', best_epoch)
+        print("cur_acc",cur_acc)
 
     state = {
         'net': best_model.state_dict(),
@@ -314,7 +316,7 @@ if __name__ == '__main__':
                         help='output root, where to save models and results',
                         type=str)
     parser.add_argument('--num_epochs',
-                        default=10, # 100
+                        default=3, # 100
                         help='num of epochs of training, the script would only test model if set num_epochs to 0',
                         type=int)
     parser.add_argument('--gpu_ids', 
