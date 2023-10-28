@@ -1,0 +1,4 @@
+octmnist
+train  auc: 0.95619  acc: 0.89741  sen: 0.89741  spe: 0.96580  prec: 0.89741  rec: 0.89741
+val  auc: 0.95390  acc: 0.89291  sen: 0.89291  spe: 0.96430  prec: 0.89291  rec: 0.89291
+test  auc: 0.93473  acc: 0.69400  sen: 0.69400  spe: 0.89800  prec: 0.69400  rec: 0.69400
